@@ -311,7 +311,53 @@
   </style>
 </head>
 <body>
+  <!-- ===== Welcome Screen ===== -->
+<div id="welcome-screen" style="
+  position: fixed;
+  inset: 0;
+  z-index: 999;
+  background: rgba(61, 43, 31, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  transition: opacity 0.6s ease;
+">
+  <div style="
+    background: rgba(245, 240, 232, 0.12);
+    border: 1px solid rgba(245, 240, 232, 0.2);
+    border-radius: 20px;
+    padding: 3rem 4rem;
+    text-align: center;
+    backdrop-filter: blur(8px);
+  ">
+    <p style="font-size: 14px; letter-spacing: 0.2em; color: rgba(245,240,232,0.6); margin-bottom: 0.75rem;">WELCOME</p>
+    <h1 style="font-family: 'Noto Serif SC', serif; font-size: 2.5rem; color: #F5F0E8; margin-bottom: 0.5rem;">Hi, I'm Yiwen</h1>
+    <p style="font-size: 1rem; color: #C8956A; letter-spacing: 0.08em; margin-bottom: 2rem;">Data Analysis · Software Development</p>
+    <button onclick="enterSite()" style="
+      background: rgba(245,240,232,0.15);
+      border: 1px solid rgba(245,240,232,0.3);
+      border-radius: 30px;
+      color: #F5F0E8;
+      font-size: 14px;
+      letter-spacing: 0.1em;
+      padding: 0.75rem 2.5rem;
+      cursor: pointer;
+      transition: background 0.2s;
+    ">Enter →</button>
+  </div>
+</div>
 
+<script>
+  function enterSite() {
+    const screen = document.getElementById('welcome-screen');
+    screen.style.opacity = '0';
+    setTimeout(() => screen.style.display = 'none', 600);
+  }
+</script>
   <!-- ===== Header ===== -->
   <header>
     <div class="container">
