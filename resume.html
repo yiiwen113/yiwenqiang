@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Yiwen Qiang — Resume</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600&family=Noto+Sans+SC:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --cream:        #F5F0E8;
+      --cream-dark:   #EDE7D9;
+      --sand:         #D9CEBC;
+      --warm-brown:   #7A6652;
+      --deep-brown:   #3D2B1F;
+      --accent:       #A0522D;
+      --accent-light: #C8956A;
+      --text-main:    #2E1F14;
+      --text-muted:   #7A6652;
+      --tag-bg:       #E8DDD0;
+      --divider:      #C8B89A;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background-color: var(--cream);
+      color: var(--text-main);
+      font-family: 'Noto Sans SC', 'PingFang SC', sans-serif;
+      font-weight: 400;
+      line-height: 1.8;
+      font-size: 15px;
+    }
+
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    .container { max-width: 820px; margin: 0 auto; padding: 0 2rem; }
+
+    /* ── Header ── */
+    header {
+      background-color: var(--deep-brown);
+      padding: 4rem 0 3rem;
+      position: relative;
+      overflow: hidden;
+    }
+    header::before {
+      content: '';
+      position: absolute;
+      top: -60px; right: -60px;
+      width: 300px; height: 300px;
+      border-radius: 50%;
+      border: 60px solid rgba(255,255,255,0.04);
+    }
+    header::after {
+      content: '';
+      position: absolute;
+      bottom: -40px; left: 10%;
+      width: 180px; height: 180px;
+      border-radius: 50%;
+      border: 40px solid rgba(255,255,255,0.03);
+    }
+
+    .hero-inner {
+      display: flex;
+      align-items: center;
+      gap: 2.5rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .avatar {
+      width: 110px; height: 110px;
+      border-radius: 50%;
+      background-color: var(--sand);
+      border: 3px solid rgba(255,255,255,0.2);
+      flex-shrink: 0;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Noto Serif SC', serif;
+      font-size: 2.2rem;
+      color: var(--warm-brown);
+      /* To add a photo: replace this div with <img src="your-photo.jpg" alt="Yiwen Qiang" style="width:110px;height:110px;border-radius:50%;object-fit:cover;border:3px solid rgba(255,255,255,0.2);"> */
+    }
+
+    .hero-text h1 {
+      font-family: 'Noto Serif SC', serif;
+      font-size: 2rem;
+      font-weight: 600;
+      color: #F5F0E8;
+      letter-spacing: 0.05em;
+      margin-bottom: 0.3rem;
+    }
+    .hero-text .subtitle {
+      font-size: 1rem;
+      color: var(--accent-light);
+      letter-spacing: 0.08em;
+      margin-bottom: 1rem;
+    }
+    .hero-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+    .hero-tag {
+      font-size: 12px;
+      color: rgba(245,240,232,0.7);
+      border: 1px solid rgba(245,240,232,0.2);
+      border-radius: 20px;
+      padding: 3px 12px;
+      letter-spacing: 0.04em;
+    }
+
+    /* ── Nav ── */
+    nav {
+      background-color: var(--cream-dark);
+      border-bottom: 1px solid var(--divider);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    nav ul { list-style: none; display: flex; }
+    nav ul li a {
+      display: block;
+      padding: 0.9rem 1.4rem;
+      font-size: 13px;
+      color: var(--text-muted);
+      letter-spacing: 0.06em;
+      border-bottom: 2px solid transparent;
+      transition: color 0.2s, border-color 0.2s;
+    }
+    nav ul li a:hover {
+      color: var(--accent);
+      border-bottom-color: var(--accent);
+      text-decoration: none;
+    }
+
+    /* ── Main ── */
+    main { padding: 4rem 0 5rem; }
+
+    .section { margin-bottom: 4rem; }
+
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+    .section-label {
+      font-family: 'Noto Serif SC', serif;
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: var(--deep-brown);
+      letter-spacing: 0.04em;
+      white-space: nowrap;
+    }
+    .section-line {
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(to right, var(--divider), transparent);
+    }
+
+    /* ── About ── */
+    .intro-card {
+      background-color: var(--cream-dark);
+      border: 1px solid var(--divider);
+      border-left: 4px solid var(--accent);
+      border-radius: 12px;
+      padding: 2rem;
+    }
+    .intro-card p { color: var(--text-main); line-height: 2; font-size: 15px; }
+
+    /* ── Education ── */
+    .edu-card {
+      background-color: var(--cream-dark);
+      border: 1px solid var(--divider);
+      border-radius: 10px;
+      padding: 1.5rem 1.75rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    .edu-school {
+      font-weight: 500;
+      font-size: 16px;
+      color: var(--deep-brown);
+      margin-bottom: 0.25rem;
+    }
+    .edu-degree { font-size: 14px; color: var(--text-main); margin-bottom: 0.25rem; }
+    .edu-meta { font-size: 13px; color: var(--text-muted); }
+    .edu-right { text-align: right; }
+    .edu-location { font-size: 14px; color: var(--text-muted); margin-bottom: 0.25rem; }
+    .edu-period { font-size: 13px; color: var(--accent); }
+    .edu-award {
+      margin-top: 1rem;
+      font-size: 13px;
+      color: var(--warm-brown);
+      background-color: var(--tag-bg);
+      display: inline-block;
+      padding: 4px 12px;
+      border-radius: 4px;
+    }
+
+    /* ── Skills ── */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+      gap: 1rem;
+    }
+    .skill-group {
+      background-color: var(--cream-dark);
+      border: 1px solid var(--divider);
+      border-radius: 10px;
+      padding: 1.25rem;
+    }
+    .skill-group-title {
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--accent);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 0.75rem;
+    }
+    .skill-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+    .skill-tag {
+      background-color: var(--tag-bg);
+      color: var(--warm-brown);
+      font-size: 13px;
+      padding: 3px 10px;
+      border-radius: 4px;
+    }
+
+    /* ── Timeline ── */
+    .timeline {
+      position: relative;
+      padding-left: 1.5rem;
+      border-left: 2px solid var(--divider);
+    }
+    .timeline-item { position: relative; padding-bottom: 2.5rem; }
+    .timeline-item:last-child { padding-bottom: 0; }
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: -1.6rem; top: 6px;
+      width: 10px; height: 10px;
+      border-radius: 50%;
+      background-color: var(--accent);
+      border: 2px solid var(--cream);
+    }
+    .timeline-meta {
+      display: flex;
+      align-items: baseline;
+      flex-wrap: wrap;
+      gap: 0.5rem 1rem;
+      margin-bottom: 0.4rem;
+    }
+    .timeline-company { font-weight: 500; font-size: 16px; color: var(--deep-brown); }
+    .timeline-role    { font-size: 14px; color: var(--accent); }
+    .timeline-period  { font-size: 13px; color: var(--text-muted); margin-left: auto; }
+    .timeline-desc    { color: var(--text-main); font-size: 14px; line-height: 1.9; }
+    .timeline-desc ul { padding-left: 1.2rem; margin-top: 0.5rem; }
+    .timeline-desc ul li { margin-bottom: 0.3rem; }
+
+    /* ── Contact ── */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+    }
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      background-color: var(--cream-dark);
+      border: 1px solid var(--divider);
+      border-radius: 10px;
+      padding: 1rem 1.25rem;
+      transition: border-color 0.2s;
+    }
+    .contact-item:hover { border-color: var(--accent); }
+    .contact-icon {
+      width: 36px; height: 36px;
+      border-radius: 50%;
+      background-color: var(--tag-bg);
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+      font-size: 16px;
+    }
+    .contact-label  { font-size: 12px; color: var(--text-muted); margin-bottom: 2px; }
+    .contact-value  { font-size: 14px; font-weight: 500; color: var(--deep-brown); }
+
+    /* ── Footer ── */
+    footer {
+      text-align: center;
+      padding: 2rem;
+      font-size: 12px;
+      color: var(--text-muted);
+      border-top: 1px solid var(--divider);
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 600px) {
+      .hero-inner { flex-direction: column; text-align: center; }
+      .hero-tags  { justify-content: center; }
+      nav ul li a { padding: 0.9rem 0.8rem; font-size: 12px; }
+      .timeline-period { margin-left: 0; width: 100%; }
+      .edu-card { flex-direction: column; }
+      .edu-right { text-align: left; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===== Header ===== -->
+  <header>
+    <div class="container">
+      <div class="hero-inner">
+
+        <div class="avatar">YQ</div>
+
+        <div class="hero-text">
+          <h1>Yiwen Qiang</h1>
+          <p class="subtitle">Data Analysis · Software Development</p>
+          <div class="hero-tags">
+            <span class="hero-tag">Perth, WA</span>
+            <span class="hero-tag">Graduating 2028</span>
+            <span class="hero-tag">Full-time / Internship</span>
+            <span class="hero-tag">Work Rights ✓</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </header>
+
+  <!-- ===== Nav ===== -->
+  <nav>
+    <div class="container">
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#volunteer">Volunteer</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- ===== Main ===== -->
+  <main>
+    <div class="container">
+
+      <!-- About -->
+      <section class="section" id="about">
+        <div class="section-header">
+          <span class="section-label">About</span>
+          <div class="section-line"></div>
+        </div>
+        <div class="intro-card">
+          <p>
+            7.0 GPA undergraduate with a focus on software development, relational database design,
+            and statistical analysis. I bring logical thinking and detail-oriented problem-solving skills
+            to process improvement and system efficiency. Passionate about STEM education, with
+            volunteer experience supporting science education for young learners.
+          </p>
+        </div>
+      </section>
+
+      <!-- Education -->
+      <section class="section" id="education">
+        <div class="section-header">
+          <span class="section-label">Education</span>
+          <div class="section-line"></div>
+        </div>
+        <div class="edu-card">
+          <div>
+            <div class="edu-school">The University of Western Australia</div>
+            <div class="edu-degree">Bachelor of Science in Computer Science</div>
+            <div class="edu-meta">WAM: 85.25</div>
+            <span class="edu-award">🏅 UWA Global Excellence Scholarship (Tier 1)</span>
+          </div>
+          <div class="edu-right">
+            <div class="edu-location">Perth, Australia</div>
+            <div class="edu-period">Expected Graduation: 2028</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Skills -->
+      <section class="section" id="skills">
+        <div class="section-header">
+          <span class="section-label">Skills</span>
+          <div class="section-line"></div>
+        </div>
+        <div class="skills-grid">
+
+          <div class="skill-group">
+            <div class="skill-group-title">Programming</div>
+            <div class="skill-tags">
+              <span class="skill-tag">Python</span>
+              <span class="skill-tag">SQL</span>
+              <span class="skill-tag">R</span>
+              <span class="skill-tag">Bash</span>
+            </div>
+          </div>
+
+          <div class="skill-group">
+            <div class="skill-group-title">Data &amp; Analytics</div>
+            <div class="skill-tags">
+              <span class="skill-tag">SQLite</span>
+              <span class="skill-tag">ER Modelling</span>
+              <span class="skill-tag">SPSS</span>
+              <span class="skill-tag">Excel</span>
+            </div>
+          </div>
+
+          <div class="skill-group">
+            <div class="skill-group-title">Additional</div>
+            <div class="skill-tags">
+              <span class="skill-tag">Research Writing</span>
+              <span class="skill-tag">Analytical Writing</span>
+              <span class="skill-tag">STEM Communication</span>
+            </div>
+          </div>
+
+          <div class="skill-group">
+            <div class="skill-group-title">Languages</div>
+            <div class="skill-tags">
+              <span class="skill-tag">English (Fluent)</span>
+              <span class="skill-tag">Chinese Mandarin (Native)</span>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- Academic Projects -->
+      <section class="section" id="projects">
+        <div class="section-header">
+          <span class="section-label">Academic Projects</span>
+          <div class="section-line"></div>
+        </div>
+
+        <div class="timeline">
+
+          <div class="timeline-item">
+            <div class="timeline-meta">
+              <span class="timeline-company">Traffic Data Pipeline &amp; Analytics</span>
+              <span class="timeline-period">Apr 2026</span>
+            </div>
+            <div class="timeline-desc">
+              <ul>
+                <li>Developed a Python pipeline for large-scale traffic datasets, incorporating validation logic to ensure accuracy and statistical analysis to uncover traffic flow patterns.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-meta">
+              <span class="timeline-company">Multi-Domain Cybersecurity Assessment</span>
+              <span class="timeline-period">Oct 2025</span>
+            </div>
+            <div class="timeline-desc">
+              <ul>
+                <li>Executed multi-domain web and Linux exploits to identify critical vulnerabilities and enforce infrastructure hardening.</li>
+                <li>Performed RSA cryptanalysis and Docker forensics to reduce sensitive data exposure and configuration risks.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-meta">
+              <span class="timeline-company">Dental Clinic Relational Database System</span>
+              <span class="timeline-period">Sept 2025</span>
+            </div>
+            <div class="timeline-desc">
+              <ul>
+                <li>Built a normalised SQLite database to manage clinic records, billing, and scheduling; focused on data integrity and query performance to improve administrative efficiency.</li>
+              </ul>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- Volunteer -->
+      <section class="section" id="volunteer">
+        <div class="section-header">
+          <span class="section-label">Volunteer</span>
+          <div class="section-line"></div>
+        </div>
+
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="timeline-meta">
+              <span class="timeline-company">Yale Primary School</span>
+              <span class="timeline-role">Technical Workshop Facilitator</span>
+              <span class="timeline-period">Sept 2025</span>
+            </div>
+            <div class="timeline-desc">
+              <ul>
+                <li>Delivered technical workshops for youth, effectively simplifying complex technical concepts for diverse audiences and enhancing community scientific literacy.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Contact -->
+      <section class="section" id="contact">
+        <div class="section-header">
+          <span class="section-label">Contact</span>
+          <div class="section-line"></div>
+        </div>
+
+        <div class="contact-grid">
+
+          <a class="contact-item" href="mailto:yiwen.qiang@outlook.com">
+            <div class="contact-icon">✉</div>
+            <div>
+              <div class="contact-label">Email</div>
+              <div class="contact-value">yiwen.qiang@outlook.com</div>
+            </div>
+          </a>
+
+          <a class="contact-item" href="tel:+610466219057">
+            <div class="contact-icon">☎</div>
+            <div>
+              <div class="contact-label">Phone</div>
+              <div class="contact-value">0466 219 057</div>
+            </div>
+          </a>
+
+          <div class="contact-item">
+            <div class="contact-icon">📍</div>
+            <div>
+              <div class="contact-label">Address</div>
+              <div class="contact-value">291 Churchill Ave, Subiaco WA 6008</div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <footer>
+    <p>© 2026 Yiwen Qiang · yiwen.qiang@outlook.com</p>
+  </footer>
+
+</body>
+</html>
